@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Money</title>
+	<style type="text/css">
+		#wrapper{
+			margin:100px;
+/*			background-color: yellow;
+*/			width: 1200px;
+		}
+		#header{
+			/*background-color: green;*/
+		}
+		.gold{
+			display: inline-block;
+		}
+		#gold{
+			border:2px solid black;
+			width: 200px;
+			/*background-color: blue;*/
+		}
+		.choice{
+			width: 240px;
+			display: inline-block;
+			vertical-align: top;
+			/*background-color: orange;*/
+			text-align: center;
+			margin-right:10px;
+			padding: 20px;
+			border:2px solid black;
+		}
+		#log{
+			border:2px solid black;
+			height: 200px;
+			/*background-color: red;*/
+			margin-right:20px;
+			overflow: scroll;
+
+		}
+	</style>
+<!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.submit').click(function(){
+				// var htmlStr = '<p style="color:{{color}};">{{log}}</p>'
+				$('#log').append('<p>{{log}}</p>')
+			});
+		});
+	</script> -->
+</head>
+<body>
+	<div id='wrapper'>
+		<div id="header">
+		<p class="gold">Your Gold:</p>
+		<p class="gold" id="gold">{{gold}}<p>
+		</div>
+		<div id='choice'>
+			<form class="choice" action="/process_money" method="post"> 
+				<h3>Farm</h3>
+				<p>(earn 10-20 gold)</p>				
+				<input type="hidden" name="building" value="farm" />
+				<input class="submit" type="submit" name="submit" value="Find Gold!">
+			</form>
+			<form class="choice" action="/process_money" method="post"> 
+				<h3>Cave</h3>
+				<p>(earn 5-10 gold)</p>				
+				<input type="hidden" name="building" value="cave" />
+				<input class="submit" type="submit" name="submit" value="Find Gold!">
+			</form>			
+			<form class="choice" action="/process_money" method="post"> 
+				<h3>House</h3>
+				<p>(earn 2-5 gold)</p>				
+				<input type="hidden" name="building" value="house" />
+				<input class="submit" type="submit" name="submit" value="Find Gold!">
+			</form>			
+			<form class="choice" action="/process_money" method="post"> 
+				<h3>Casino</h3>
+				<p>(earn/takes 0-50 gold)</p>				
+				<input type="hidden" name="building" value="casino" />
+				<input class="submit" type="submit" name="submit" value="Find Gold!">
+			</form>
+		</div>
+		<p>Activies:</p>
+		<div id='log'>
+			{{log}}
+		</div>
+	</div>
+</body>
+</html>
